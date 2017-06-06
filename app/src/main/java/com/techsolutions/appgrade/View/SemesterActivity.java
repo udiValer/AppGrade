@@ -50,7 +50,7 @@ public class SemesterActivity extends Activity {
                     //curSearchRecord.setSemester(spinner.getSelectedItem().toString());
                     //Log.d("SemesterActivity", "semester from Object: " + curSearchRecord.getSemester());
                 }
-                Intent courseActivity = new Intent("yuvallevy.finalproject_correct.COURSEACTIVITY");
+                Intent courseActivity = new Intent("com.techsolutions.appgrade.COURSEACTIVITY");
                 //courseActivity.putExtra("course", curSearchRecord);
                 Log.d("SemesterActivity", "after put extars");
                 startActivity(courseActivity);

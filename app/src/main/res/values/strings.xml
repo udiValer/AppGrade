@@ -4,6 +4,11 @@
     <string name="addingCurrentSemester"> "סמסטר נוכחי:"</string>
     <string name="registerApproved"> נרשמת בהצלחה!</string>
 
+    <!-- Error string validation -->
+    <string name="DigitsNotValid"> מספר הטלפון צריך להכיל 10 ספרות </string>
+    <string name="AgeNotValid"> גיל לא יכול להיות קטן או שווה ל-0 </string>
+    <string name="realmNotValid"> אנא בחר תחום תואר מהרשימה </string>
+
     <string-array name="spinnerarrayForDeg">
         <item>  "בחר תחום לימודים..."</item>
         <item> "כלכלה"</item>
@@ -12,10 +17,32 @@
         <item>  "תקשורת"</item>
     </string-array>
 
-
-    <!-- Error string validation -->
-    <string name="DigitsNotValid"> מספר הטלפון צריך להכיל 10 ספרות </string>
-    <string name="AgeNotValid"> גיל לא יכול להיות קטן או שווה ל-0 </string>
-    <string name="realmNotValid"> אנא בחר תחום תואר מהרשימה </string>
+    <string-array name="spinnerarrayForCity">
+        <item>  "בחר איזור לימודים..."</item>
+        <item> "צפון"</item>
+        <item> "חיפה והסביבה"</item>
+        <item>  "עכו - נהריה והסביבה"</item>
+        <item>  "הכינרת והסביבה"</item>
+        <item> "ראש פינה והחולה"</item>
+        <item> "חדרה זיכרון והעמקים"</item>
+        <item> "עמק בית שאן"</item>
+        <item> "עפולה והעמקים"</item>
+        <item> "רמת השרון - הרצליה"</item>
+        <item> "רעננה - כפר סבא"</item>
+        <item> "הוד השרון והסביבה"</item>
+        <item> "מרכז"</item>
+        <item> "תל אביב"</item>
+        <item> "ראשון לציון והסביבה"</item>
+        <item> "רמת גן - גבעתיים"</item>
+        <item> "פתח תקווה והסביבה"</item>
+        <item> "איזור ירושלים"</item>
+        <item> "נס ציונה - רחובות"</item>
+        <item> "גדרה והסביבה"</item>
+        <item> "דרום"</item>
+        <item> "קרית גת והסביבה"</item>
+        <item> "באר שבע והסביבה"</item>
+        <item> "יישובי הנגב"</item>
+        <item> "אילת והערבה"</item>
+    </string-array>
 
 </resources>

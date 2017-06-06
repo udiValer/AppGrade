@@ -29,14 +29,21 @@
                 <action android:name="com.techsolutions.appgrade.REGISTER" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
-        </activity>
+        </activity>-->
 
         <activity android:name=".View.CourseActivity">
             <intent-filter>
                 <action android:name="com.techsolutions.appgrade.COURSEACTIVITY" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
-        </activity>-->
+        </activity>
+
+        <activity android:name=".View.CityActivity">
+            <intent-filter>
+                <action android:name="com.techsolutions.appgrade.CITYACTIVITY" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
 
     </application>
 
