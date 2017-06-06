@@ -24,12 +24,12 @@
             </intent-filter>
         </activity>
 
-        <!--<activity android:name=".View.Register">
+        <activity android:name=".View.RegisterActivity">
             <intent-filter>
-                <action android:name="com.techsolutions.appgrade.REGISTER" />
+                <action android:name="com.techsolutions.appgrade.REGISTERACTIVITY" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
-        </activity>-->
+        </activity>
 
         <activity android:name=".View.CourseActivity">
             <intent-filter>

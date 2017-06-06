@@ -39,7 +39,7 @@ public class FirstActivity extends Activity {
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent registerIntent = new Intent("com.techsolutions.appgrade.REGISTER");
+                Intent registerIntent = new Intent("com.techsolutions.appgrade.REGISTERACTIVITY");
                 registerIntent.putExtra("CurrentStatus", "User_NotRegister");
                 startActivity(registerIntent);
             }
