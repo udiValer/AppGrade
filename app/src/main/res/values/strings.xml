@@ -5,9 +5,14 @@
     <string name="registerApproved"> נרשמת בהצלחה!</string>
 
     <!-- Error string validation -->
+    <string name="EmailNotValid"> האי מייל שהזנת אינו חוקי </string>
     <string name="DigitsNotValid"> מספר הטלפון צריך להכיל 10 ספרות </string>
     <string name="AgeNotValid"> גיל לא יכול להיות קטן או שווה ל-0 </string>
-    <string name="realmNotValid"> אנא בחר תחום תואר מהרשימה </string>
+    <string name="RealmNotValid"> אנא בחר תחום תואר מהרשימה </string>
+
+    <!-- Register Activity -->
+    <string name="RegisterActivityFirstTitleText"> צור את פרופיל הסטודנט שלך </string>
+    <string name="RegisterActivitySecondTitleText"> אנא מלא את הפרטים הבאים כדי למצוא שותפים נהדרים ללמוד איתם </string>
 
     <string-array name="spinnerarrayForDeg">
         <item>  "בחר תחום לימודים..."</item>

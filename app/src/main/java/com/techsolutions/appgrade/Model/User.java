@@ -1,5 +1,7 @@
 package com.techsolutions.appgrade.Model;
 
+import org.apache.commons.validator.routines.EmailValidator;
+
 import java.sql.Blob;
 
 /**
@@ -19,8 +21,13 @@ public abstract class User {
 
     public String getEmail() {  return email;   }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public boolean setEmail(String email) {
+        if(EmailValidator.getInstance().isValid(email)) {
+            this.email = email;
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public String getName() {   return name;    }
@@ -31,16 +38,26 @@ public abstract class User {
 
     public int getPhoneNumber() {   return phoneNumber; }
 
-    public void setPhoneNumber(int phoneNumber) {
-        this.phoneNumber = phoneNumber;
+    public boolean setPhoneNumber(int phoneNumber) {
+        if(String.valueOf(phoneNumber).length() == 10) {
+            this.phoneNumber = phoneNumber;
+            return true;
+        }else{
+            return false;
+        }
     }
 
     public int getAge() {
         return age;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public boolean setAge(int age) {
+        if(!(age<=0)) {
+            this.age = age;
+            return  true;
+        }else{
+            return  false;
+        }
     }
 
     public String getRealm() {
@@ -54,4 +71,5 @@ public abstract class User {
     public Blob getPicture() { return picture; }
 
     public void setPicture(Blob pic) { this.picture = pic;  }
+
 }

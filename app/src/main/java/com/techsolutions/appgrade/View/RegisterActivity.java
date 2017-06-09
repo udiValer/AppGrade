@@ -5,6 +5,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.AbsListView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -13,6 +14,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.techsolutions.appgrade.Model.ThisUser;
 import com.techsolutions.appgrade.R;
 
 /**
@@ -22,8 +24,8 @@ import com.techsolutions.appgrade.R;
 public class RegisterActivity extends Activity {
 
     //private Student studentForReg;
-    private EditText studentEmail;
-    private EditText studentName;
+    private EditText userEmail;
+    private EditText userName;
     private EditText phoneNumber;
     private EditText age;
     private TextView firstTitleText;
@@ -47,30 +49,15 @@ public class RegisterActivity extends Activity {
 
         firstTitleText = (TextView) findViewById(R.id.firstTitleText);
         secondTitleText = (TextView) findViewById(R.id.secondTitleText);
-        studentEmail = (EditText) findViewById(R.id.txtEmail);
-        studentName = (EditText) findViewById(R.id.txtFullName);
+        userEmail = (EditText) findViewById(R.id.txtEmail);
+        userName = (EditText) findViewById(R.id.txtFullName);
         phoneNumber = (EditText) findViewById(R.id.txtPhoneNumber);
         age = (EditText) findViewById(R.id.txtAge);
         realm = (Spinner) findViewById(R.id.spRealm);
         reg = (Button) findViewById(R.id.btnSignIn);
 
-        String callerStatus = getIntent().getStringExtra("CurrentStatus");
-        //Set the text title according to the activity the user arrived from
-        if (callerStatus.equals("FirstUser_NotRegister")) {
-            //You are the first - Enter your details
-            firstTitleText.setText("תלמיד חרוץ! אתה הראשון");
-            secondTitleText.setText("אנא מלא את הפרטים הבאים:\nואנו נודיע לך ברגע שנמצא עבורך סטודנט מתאים ללמוד איתו");
-            addToMyCourses = true;
-        } else if (callerStatus.equals("Found_Match_NotRegister")) {
-            //Matches found - enter your details to contact
-            firstTitleText.setText("נמצאו סטודנטים מתאימים!");
-            secondTitleText.setText("אנא מלא את הפרטים הבאים כדי ליצור קשר עם הפרטנר שבחרת");
-            cameFromSearchResult = true;
-            addToMyCourses = true;
-        } else { //Create new profile
-            firstTitleText.setText("צור את פרופיל הסטודנט שלך");
-            secondTitleText.setText("אנא מלא את הפרטים הבאים כדי למצוא שותפים נהדרים ללמוד איתם");
-        }
+        firstTitleText.setText(R.string.RegisterActivityFirstTitleText);
+        secondTitleText.setText(R.string.RegisterActivitySecondTitleText);
 
         ArrayAdapter<CharSequence> adapterForDeg = ArrayAdapter.createFromResource(this, R.array.spinnerarrayForDeg, android.R.layout.simple_spinner_item);
         adapterForDeg.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -78,29 +65,16 @@ public class RegisterActivity extends Activity {
 
         layoutInflater = (LayoutInflater) getBaseContext().getSystemService(LAYOUT_INFLATER_SERVICE);
         popupView = layoutInflater.inflate(R.layout.register_popup, null);
-        //popupWindow = new PopupWindow(popupView, AbsListView.LayoutParams.WRAP_CONTENT, AbsListView.LayoutParams.WRAP_CONTENT);
+        popupWindow = new PopupWindow(popupView, AbsListView.LayoutParams.WRAP_CONTENT, AbsListView.LayoutParams.WRAP_CONTENT);
         btnDismiss = (Button) popupView.findViewById(R.id.goToProfile);
 
 
         reg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                studentForReg = new Student();
-//                if(Validation.isValidEmailAddress(studentEmail.getText().toString())) {
-//                    studentForReg.setEmail(studentEmail.getText().toString());
-//                    System.out.println("In validation ok");
-//                }
-//                else {
-//                    Toast.makeText(getApplicationContext(), "The mail you entered is not valid", Toast.LENGTH_SHORT);
-//                    System.out.println("Validation not ok!! Toast didn't show up");
-//                }
-//                studentForReg.setName(studentName.getText().toString());
-//                studentForReg.setPhoneNumber(Integer.valueOf(phoneNumber.getText().toString()));
-//                studentForReg.setAge(Integer.valueOf(age.getText().toString()));
-//                studentForReg.setRealm(realm.getSelectedItem().toString());
-//
-//                DBExcute dbEx = new DBExcute();
-//                dbEx.execute();
+                ThisUser thisUser = ThisUser.getInstance();
+                thisUser.init(userEmail.toString() , userName.toString() , Integer.parseInt(phoneNumber.toString())
+                        , Integer.parseInt(age.toString()) , realm.toString() , null);
             }
         });
 
