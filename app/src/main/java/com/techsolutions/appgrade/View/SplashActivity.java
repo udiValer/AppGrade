@@ -26,13 +26,13 @@ public class SplashActivity extends Activity{
         progressBar.setVisibility(View.VISIBLE);
 
         // TODO: Yuval - need to do if statement to check if user is registered in sharedPref - if yes set isRegistered = true
-        SetupLastVersionAndUpdates setUpApplication = new SetupLastVersionAndUpdates();
+        SyncVersionAndUpdates setUpApplication = new SyncVersionAndUpdates();
         setUpApplication.execute();
 
         //this.context = getApplicationContext();
     }
 
-    class SetupLastVersionAndUpdates extends AsyncTask<Void, Void, Void> {
+    class SyncVersionAndUpdates extends AsyncTask<Void, Void, Void> {
 
         @Override
         protected Void doInBackground(Void... params) {
