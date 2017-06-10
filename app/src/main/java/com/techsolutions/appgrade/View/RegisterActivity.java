@@ -1,8 +1,10 @@
 package com.techsolutions.appgrade.View;
 
 import android.app.Activity;
+import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AbsListView;
@@ -72,9 +74,13 @@ public class RegisterActivity extends Activity {
         reg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Log.d("RegisterActivity" , "Inside reg clicked");
                 ThisUser thisUser = ThisUser.getInstance();
-                thisUser.init(userEmail.toString() , userName.toString() , Integer.parseInt(phoneNumber.toString())
-                        , Integer.parseInt(age.toString()) , realm.toString() , null);
+                Log.d("RegisterActivity" , "After initialized user");
+                String resultForPopUp = thisUser.getInstance().init(getApplicationContext() ,userEmail.getText().toString() , userName.getText().toString() , phoneNumber.getText().toString()
+                        , Integer.valueOf(age.getText().toString()) , realm.getSelectedItem().toString() , null);
+                Log.d("RegisterActivity" , resultForPopUp);
+                Log.d("RegisterActivity" , thisUser.toString());
             }
         });
 
