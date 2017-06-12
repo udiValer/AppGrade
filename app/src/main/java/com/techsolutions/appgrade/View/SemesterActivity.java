@@ -13,6 +13,8 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
+
+import com.techsolutions.appgrade.Model.SearchRecord;
 import com.techsolutions.appgrade.R;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -23,7 +25,6 @@ public class SemesterActivity extends Activity {
     private Button btnProceed;
     private ArrayList<String> relevantSemesters = new ArrayList<>();
     private ArrayAdapter<String> adapter;
-    //private NewSearchingRecord curSearchRecord = new NewSearchingRecord();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,15 +45,11 @@ public class SemesterActivity extends Activity {
             public void onClick(View v) {
                 if (spinner.getSelectedItem().toString().contains(getString(R.string.addingCurrentSemester))) {
                     String toAdd = spinner.getSelectedItem().toString().substring(12);
-                    //curSearchRecord.setSemester(toAdd);
-                    System.out.println(toAdd);
+                    SearchRecord.getInstance().setSemester(toAdd);
                 } else {
-                    //curSearchRecord.setSemester(spinner.getSelectedItem().toString());
-                    //Log.d("SemesterActivity", "semester from Object: " + curSearchRecord.getSemester());
+                    SearchRecord.getInstance().setSemester(spinner.getSelectedItem().toString());
                 }
                 Intent courseActivity = new Intent("com.techsolutions.appgrade.COURSEACTIVITY");
-                //courseActivity.putExtra("course", curSearchRecord);
-                Log.d("SemesterActivity", "after put extars");
                 startActivity(courseActivity);
             }
         });
