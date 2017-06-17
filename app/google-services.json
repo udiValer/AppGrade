@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "445540953748",
+    "firebase_url": "https://test-project-86ff9.firebaseio.com",
+    "project_id": "test-project-86ff9",
+    "storage_bucket": "test-project-86ff9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:445540953748:android:cf4b42b186de61cf",
+        "android_client_info": {
+          "package_name": "com.techsolutions.appgrade"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "445540953748-oc61v9oevieidm8jblofhgni1civ8ftk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyApWsnX9H9BwAxSmQxTHTXbdiD4ebxARHo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

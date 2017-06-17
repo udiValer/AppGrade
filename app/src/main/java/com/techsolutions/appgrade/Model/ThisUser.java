@@ -20,6 +20,10 @@ public class ThisUser {
 //    private String realm;
     private Blob picture;
 
+    // todo - replace picture blob with url path to firebase storage service, add date field to user metadata
+    //private String pictureUrl
+    //private Long dateAdded
+
     private static final ThisUser INSTANCE = new ThisUser();
 
     public static ThisUser getInstance() {  return INSTANCE;  }

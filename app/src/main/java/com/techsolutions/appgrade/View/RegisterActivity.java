@@ -23,6 +23,7 @@ import android.widget.TextView;
 import com.techsolutions.appgrade.Logic.DataController;
 import com.techsolutions.appgrade.Model.ThisUser;
 import com.techsolutions.appgrade.R;
+import com.techsolutions.appgrade.database.FireBaseDBUtils;
 
 /**
  * Created by Udi on 6/6/2017.
@@ -93,10 +94,13 @@ public class RegisterActivity extends Activity {
             @Override
             public void onClick(View v) {
                 ThisUser thisUser = ThisUser.getInstance();
-                String resultForPopUp = thisUser.getInstance().init(getApplicationContext(), userEmail.getText().toString(), userName.getText().toString(), phoneNumber.getText().toString()
+                String resultForPopUp = thisUser.init(getApplicationContext(), userEmail.getText().toString(), userName.getText().toString(), phoneNumber.getText().toString()
                         , Integer.valueOf(age.getText().toString()), realm.getSelectedItem().toString(), null);
                 Log.d("RegisterActivity", "Resutl of Validation is: " + resultForPopUp);
                 Log.d("RegisterActivity", thisUser.toString());
+
+                //add user to db
+                //FireBaseDBUtils.addUser(thisUser);
             }
         });
 
