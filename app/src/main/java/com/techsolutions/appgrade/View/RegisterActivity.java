@@ -1,9 +1,13 @@
 package com.techsolutions.appgrade.View;
 
 import android.app.Activity;
-import android.content.Context;
+import android.content.Intent;
+import android.database.Cursor;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,10 +15,10 @@ import android.widget.AbsListView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.PopupWindow;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.techsolutions.appgrade.Logic.DataController;
 import com.techsolutions.appgrade.Model.ThisUser;
@@ -22,17 +26,19 @@ import com.techsolutions.appgrade.R;
 
 /**
  * Created by Udi on 6/6/2017.
+ * Activity for new user registration
  */
 
 public class RegisterActivity extends Activity {
 
-    //private Student studentForReg;
+    private static int RESULT_LOAD_IMAGE = 1;
     private EditText userEmail;
     private EditText userName;
     private EditText phoneNumber;
     private EditText age;
     private TextView firstTitleText;
     private TextView secondTitleText;
+    private Button btnForPickPicture;
     private Spinner realm;
     private Button reg;
     private LayoutInflater layoutInflater;
@@ -40,8 +46,7 @@ public class RegisterActivity extends Activity {
     private PopupWindow popupWindow;
     private Button btnDismiss;
     private View parent;
-    private Boolean cameFromSearchResult = false;
-    private Boolean addToMyCourses = false;
+
 
 
     @Override
@@ -58,6 +63,7 @@ public class RegisterActivity extends Activity {
         age = (EditText) findViewById(R.id.txtAge);
         realm = (Spinner) findViewById(R.id.spRealm);
         reg = (Button) findViewById(R.id.btnSignIn);
+        btnForPickPicture = (Button) findViewById(R.id.btnImportPic);
 
         firstTitleText.setText(R.string.RegisterActivityFirstTitleText);
         secondTitleText.setText(R.string.RegisterActivitySecondTitleText);
@@ -75,16 +81,22 @@ public class RegisterActivity extends Activity {
         btnDismiss = (Button) popupView.findViewById(R.id.goToProfile);
 
 
+        btnForPickPicture.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                startActivityForResult(i, RESULT_LOAD_IMAGE);
+            }
+        });
+
         reg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("RegisterActivity" , "Inside reg clicked");
                 ThisUser thisUser = ThisUser.getInstance();
-                Log.d("RegisterActivity" , "After initialized user");
-                String resultForPopUp = thisUser.getInstance().init(getApplicationContext() ,userEmail.getText().toString() , userName.getText().toString() , phoneNumber.getText().toString()
-                        , Integer.valueOf(age.getText().toString()) , realm.getSelectedItem().toString() , null);
-                Log.d("RegisterActivity" , resultForPopUp);
-                Log.d("RegisterActivity" , thisUser.toString());
+                String resultForPopUp = thisUser.getInstance().init(getApplicationContext(), userEmail.getText().toString(), userName.getText().toString(), phoneNumber.getText().toString()
+                        , Integer.valueOf(age.getText().toString()), realm.getSelectedItem().toString(), null);
+                Log.d("RegisterActivity", "Resutl of Validation is: " + resultForPopUp);
+                Log.d("RegisterActivity", thisUser.toString());
             }
         });
 
@@ -107,6 +119,42 @@ public class RegisterActivity extends Activity {
 
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == RESULT_LOAD_IMAGE && resultCode == RESULT_OK && null != data) {
+            Uri selectedImage = data.getData();
+            String[] filePathColumn = { MediaStore.Images.Media.DATA };
+
+            Cursor cursor = getContentResolver().query(selectedImage,
+                    filePathColumn, null, null, null);
+            cursor.moveToFirst();
+
+            int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
+            String picturePath = cursor.getString(columnIndex);
+            Log.d("RegisterActivity" , picturePath.toString());
+            cursor.close();
+
+            //ImageView imageView = (ImageView) findViewById(R.id.imgView);
+            //imageView.setImageBitmap(BitmapFactory.decodeFile(picturePath));
+
+        }
+
+    }
+
+    class RegisterThisUserInBackGround extends AsyncTask<Object, Object, Void> {
+
+        @Override
+        protected Void doInBackground(Object... params) {
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void curVoid) {
+        }
+    }
+}
 
     private void InitFields(){
         userEmail.setText(DataController.Instance().getEmail());

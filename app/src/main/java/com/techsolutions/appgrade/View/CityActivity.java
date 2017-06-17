@@ -7,11 +7,13 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 
+import com.techsolutions.appgrade.Model.SearchRecord;
 import com.techsolutions.appgrade.R;
 
 import java.util.ArrayList;
@@ -26,7 +28,6 @@ public class CityActivity extends Activity {
 
     final Context context = this;
     private Spinner spinner;
-    //private NewSearchingRecord curSearchRecord;
     private Button btnProceed;
     //private DBmanipulation myDB = new DBmanipulation();
     //private ArrayList<Student> studentsFound = new ArrayList<>();
@@ -35,9 +36,6 @@ public class CityActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.city_activity);
-
-        Intent i = getIntent();
-        //curSearchRecord = (NewSearchingRecord) i.getSerializableExtra("searchingRecord");
 
         btnProceed = (Button) findViewById(R.id.btnProceed3);
         spinner = (Spinner) findViewById(R.id.spinnerForCity);
@@ -48,7 +46,10 @@ public class CityActivity extends Activity {
         btnProceed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //curSearchRecord.setPlace(spinner.getSelectedItem().toString());
+                Intent cityActivity = new Intent("com.techsolutions.appgrade.OTHERUSERCARD");
+                startActivity(cityActivity);
+                SearchRecord.getInstance().setCity(spinner.getSelectedItem().toString());
+                Log.d("CityActivity", SearchRecord.getInstance().toString());
                 //DBExcuteForFindFast myDB = new DBExcuteForFindFast();
                 //myDB.execute();
 

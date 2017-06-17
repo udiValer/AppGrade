@@ -9,6 +9,8 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
+
+import com.techsolutions.appgrade.Model.SearchRecord;
 import com.techsolutions.appgrade.R;
 
 import java.util.ArrayList;
@@ -23,7 +25,6 @@ public class CourseActivity extends Activity {
     private Spinner spinnerForDeg;
     private Spinner spinnerForCourse;
     private Button btnProceed;
-    //private NewSearchingRecord curSearchRecord;
     private boolean first = false;
 
     @Override
@@ -31,9 +32,6 @@ public class CourseActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.course_layout);
 
-        Intent i = getIntent();
-        //curSearchRecord = (NewSearchingRecord) i.getSerializableExtra("course");
-        //Log.d("CourseActivity", curSearchRecord.getSemester());
         btnProceed = (Button) findViewById(R.id.btnProceed2);
         spinnerForDeg = (Spinner) findViewById(R.id.spinnerForDeg);
         spinnerForCourse = (Spinner) findViewById(R.id.spinnerForCourse);
@@ -42,7 +40,6 @@ public class CourseActivity extends Activity {
         ArrayAdapter<CharSequence> adapterForDeg = ArrayAdapter.createFromResource(this, R.array.spinnerarrayForDeg, android.R.layout.simple_spinner_item);
         adapterForDeg.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerForDeg.setAdapter(adapterForDeg);
-
 
         //When user select degree - search in SQLite all courses for specific degree
         spinnerForDeg.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -76,13 +73,11 @@ public class CourseActivity extends Activity {
             spinnerForCourse.setVisibility(View.VISIBLE);
         }
 
-
         btnProceed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //curSearchRecord.setName(spinnerForCourse.getSelectedItem().toString());
                 Intent cityActivity = new Intent("com.techsolutions.appgrade.CITYACTIVITY");
-                //cityActivity.putExtra("searchingRecord", curSearchRecord);
+                SearchRecord.getInstance().setCourse("עד שיהיה קורסים");
                 startActivity(cityActivity);
             }
         });
