@@ -16,6 +16,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.techsolutions.appgrade.Logic.DataController;
 import com.techsolutions.appgrade.Model.ThisUser;
 import com.techsolutions.appgrade.R;
 
@@ -61,6 +62,9 @@ public class RegisterActivity extends Activity {
         firstTitleText.setText(R.string.RegisterActivityFirstTitleText);
         secondTitleText.setText(R.string.RegisterActivitySecondTitleText);
 
+        //Fill edit text Fields with saved data
+        InitFields();
+
         ArrayAdapter<CharSequence> adapterForDeg = ArrayAdapter.createFromResource(this, R.array.spinnerarrayForDeg, android.R.layout.simple_spinner_item);
         adapterForDeg.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         realm.setAdapter(adapterForDeg);
@@ -101,6 +105,15 @@ public class RegisterActivity extends Activity {
         });
 
 
+    }
+
+
+    private void InitFields(){
+        userEmail.setText(DataController.Instance().getEmail());
+        userName.setText(DataController.Instance().getName());
+        phoneNumber.setText(DataController.Instance().getPhoneNum());
+        age.setText(String.valueOf(DataController.Instance().getAge()));
+        //setRealm
     }
 
 //    class DBExcute extends AsyncTask<Void, Void, Void> {

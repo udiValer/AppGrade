@@ -19,7 +19,7 @@ import java.util.ArrayList;
 /**
  * Created by Udi on 6/6/2017.
  * Activity to choose the relevant City on the current search records
- * Decide if the user need to register after it or nnot
+ * Decide if the user need to register after this screen or not
  */
 
 public class CityActivity extends Activity {

@@ -2,11 +2,13 @@ package com.techsolutions.appgrade.View;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ProgressBar;
 
+import com.techsolutions.appgrade.Logic.DataController;
 import com.techsolutions.appgrade.R;
 
 /**
@@ -18,6 +20,7 @@ public class SplashActivity extends Activity{
     private boolean isRegistered;
     private ProgressBar progressBar;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,11 +28,16 @@ public class SplashActivity extends Activity{
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
         progressBar.setVisibility(View.VISIBLE);
 
+        //For debug - delete shred preferences
+//        getApplicationContext().getSharedPreferences("StudentSharedPref", 0).edit().clear().commit();
+
+        //Initialize DataController with context
+        DataController d = DataController.Instance(getApplicationContext());
+
         // TODO: Yuval - need to do if statement to check if user is registered in sharedPref - if yes set isRegistered = true
         SyncVersionAndUpdates setUpApplication = new SyncVersionAndUpdates();
         setUpApplication.execute();
 
-        //this.context = getApplicationContext();
     }
 
     class SyncVersionAndUpdates extends AsyncTask<Void, Void, Void> {
@@ -52,10 +60,10 @@ public class SplashActivity extends Activity{
         protected void onPostExecute(Void result) {
 
             Intent intent;
-            if (!isRegistered) {
-                intent = new Intent("com.techsolutions.appgrade.FIRSTACTIVITY");
-            } else {
+            if (isRegistered) {
                 intent = new Intent("com.techsolutions.appgrade.PROFILEACTIVITY");
+            } else {
+                intent = new Intent("com.techsolutions.appgrade.FIRSTACTIVITY");
             }
             startActivity(intent);
         }
