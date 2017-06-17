@@ -154,7 +154,7 @@ public class RegisterActivity extends Activity {
         protected void onPostExecute(Void curVoid) {
         }
     }
-}
+
 
     private void InitFields(){
         userEmail.setText(DataController.Instance().getEmail());
