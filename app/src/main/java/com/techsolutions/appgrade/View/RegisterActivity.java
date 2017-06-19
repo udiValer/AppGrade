@@ -68,9 +68,6 @@ public class RegisterActivity extends Activity {
         firstTitleText.setText(R.string.RegisterActivityFirstTitleText);
         secondTitleText.setText(R.string.RegisterActivitySecondTitleText);
 
-        //Fill edit text Fields with saved data
-        InitFields();
-
         ArrayAdapter<CharSequence> adapterForDeg = ArrayAdapter.createFromResource(this, R.array.spinnerarrayForDeg, android.R.layout.simple_spinner_item);
         adapterForDeg.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         realm.setAdapter(adapterForDeg);
@@ -95,8 +92,7 @@ public class RegisterActivity extends Activity {
                 ThisUser thisUser = ThisUser.getInstance();
                 String resultForPopUp = thisUser.getInstance().init(getApplicationContext(), userEmail.getText().toString(), userName.getText().toString(), phoneNumber.getText().toString()
                         , Integer.valueOf(age.getText().toString()), realm.getSelectedItem().toString(), null);
-                Log.d("RegisterActivity", "Resutl of Validation is: " + resultForPopUp);
-                Log.d("RegisterActivity", thisUser.toString());
+                // TODO: if resultForPopUp not equal R.string.registerApproved we should pop up error and stay on the screen
             }
         });
 
@@ -153,15 +149,6 @@ public class RegisterActivity extends Activity {
         @Override
         protected void onPostExecute(Void curVoid) {
         }
-    }
-
-
-    private void InitFields(){
-        userEmail.setText(DataController.Instance().getEmail());
-        userName.setText(DataController.Instance().getName());
-        phoneNumber.setText(DataController.Instance().getPhoneNum());
-        age.setText(String.valueOf(DataController.Instance().getAge()));
-        //setRealm
     }
 
 //    class DBExcute extends AsyncTask<Void, Void, Void> {

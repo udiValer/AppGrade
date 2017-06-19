@@ -5,10 +5,12 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
 
 import com.techsolutions.appgrade.Logic.DataController;
+import com.techsolutions.appgrade.Model.ThisUser;
 import com.techsolutions.appgrade.R;
 
 /**
@@ -17,8 +19,8 @@ import com.techsolutions.appgrade.R;
 
 public class SplashActivity extends Activity{
 
-    private boolean isRegistered;
     private ProgressBar progressBar;
+    private DataController controller;
 
 
     @Override
@@ -29,10 +31,18 @@ public class SplashActivity extends Activity{
         progressBar.setVisibility(View.VISIBLE);
 
         //For debug - delete shred preferences
-//        getApplicationContext().getSharedPreferences("StudentSharedPref", 0).edit().clear().commit();
+        //getApplicationContext().getSharedPreferences("StudentSharedPref", 0).edit().clear().commit();
 
         //Initialize DataController with context
-        DataController d = DataController.Instance(getApplicationContext());
+        controller = DataController.Instance(getApplicationContext());
+
+        /** For debug - Initialize shared pref data*/
+//        controller.getSharedPref().setAge(30);
+//        controller.getSharedPref().setName("udi valer");
+//        controller.getSharedPref().setEmail("udi.valer@gmail.com");
+//        controller.getSharedPref().setPhoneNum("050-6963363");
+//        controller.getSharedPref().setRealm("computer");
+        controller.getSharedPref().setIsRegister(false); // To ignore the fact that user already register
 
         // TODO: Yuval - need to do if statement to check if user is registered in sharedPref - if yes set isRegistered = true
         SyncVersionAndUpdates setUpApplication = new SyncVersionAndUpdates();
@@ -60,7 +70,7 @@ public class SplashActivity extends Activity{
         protected void onPostExecute(Void result) {
 
             Intent intent;
-            if (isRegistered) {
+            if (ThisUser.getInstance().IsRegister()) {
                 intent = new Intent("com.techsolutions.appgrade.PROFILEACTIVITY");
             } else {
                 intent = new Intent("com.techsolutions.appgrade.FIRSTACTIVITY");

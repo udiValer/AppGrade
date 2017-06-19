@@ -86,7 +86,7 @@
     <Button
         android:id="@+id/btnImportPic"
         android:layout_width="240dp"
-        android:layout_height="wrap_content"
+        android:layout_height="25dp"
         android:text="בחר תמונה"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="30dp"
