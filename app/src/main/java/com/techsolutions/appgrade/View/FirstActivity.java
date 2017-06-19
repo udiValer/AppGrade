@@ -1,11 +1,13 @@
 package com.techsolutions.appgrade.View;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+
 import com.techsolutions.appgrade.R;
+import com.techsolutions.appgrade.database.FireBaseDBUtils;
 
 /**
  * Created by Udi on 6/6/2017.
@@ -44,6 +46,7 @@ public class FirstActivity extends Activity {
             }
         });
 
+        FireBaseDBUtils.checkVersion();
     }
 }
 

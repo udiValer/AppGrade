@@ -23,6 +23,7 @@ import android.widget.TextView;
 import com.techsolutions.appgrade.Logic.DataController;
 import com.techsolutions.appgrade.Model.ThisUser;
 import com.techsolutions.appgrade.R;
+import com.techsolutions.appgrade.database.FireBaseDBUtils;
 
 /**
  * Created by Udi on 6/6/2017.
@@ -93,6 +94,9 @@ public class RegisterActivity extends Activity {
                 String resultForPopUp = thisUser.getInstance().init(getApplicationContext(), userEmail.getText().toString(), userName.getText().toString(), phoneNumber.getText().toString()
                         , Integer.valueOf(age.getText().toString()), realm.getSelectedItem().toString(), null);
                 // TODO: if resultForPopUp not equal R.string.registerApproved we should pop up error and stay on the screen
+
+                //add user to db
+                //FireBaseDBUtils.addUser(thisUser);
             }
         });
 
