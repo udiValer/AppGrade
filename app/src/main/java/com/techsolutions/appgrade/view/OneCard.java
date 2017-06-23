@@ -1,4 +1,4 @@
-package com.techsolutions.appgrade.View;
+package com.techsolutions.appgrade.view;
 
 import android.content.Context;
 import android.widget.ImageView;
@@ -9,7 +9,7 @@ import com.mindorks.placeholderview.SwipePlaceHolderView;
 import com.mindorks.placeholderview.annotations.Layout;
 import com.mindorks.placeholderview.annotations.Resolve;
 import com.mindorks.placeholderview.annotations.View;
-import com.techsolutions.appgrade.Model.OtherUser;
+import com.techsolutions.appgrade.model.OtherUser;
 import com.techsolutions.appgrade.R;
 
 /**

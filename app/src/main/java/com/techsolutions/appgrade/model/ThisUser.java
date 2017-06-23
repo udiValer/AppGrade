@@ -1,12 +1,8 @@
-package com.techsolutions.appgrade.Model;
+package com.techsolutions.appgrade.model;
 
 import android.content.Context;
-
-import com.techsolutions.appgrade.Logic.DataController;
+import com.techsolutions.appgrade.logic.DataController;
 import com.techsolutions.appgrade.R;
-
-import org.apache.commons.validator.routines.EmailValidator;
-
 import java.sql.Blob;
 
 /**
@@ -15,13 +11,7 @@ import java.sql.Blob;
 
 public class ThisUser extends User{
 
-    private boolean isRegister;
-    private String email;
-    private String name;
-    private String phoneNumber;
-    private int age;
-    private String realm;
-    private Blob picture;
+    protected boolean isRegister;
 
     // todo - replace picture blob with url path to firebase storage service, add date field to user metadata
     //private String pictureUrl
@@ -103,12 +93,12 @@ public class ThisUser extends User{
         }
     }
 
-    public String getRealm() {
-        return realm;
+    public String getFaculty() {
+        return faculty;
     }
 
     public void setRealm(String realm) {
-        this.realm = realm;
+        this.faculty = realm;
         DataController.Instance().getSharedPref().setRealm(realm);
     }
 

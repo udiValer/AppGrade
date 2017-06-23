@@ -1,8 +1,5 @@
 package com.techsolutions.appgrade;
 
-import com.techsolutions.appgrade.Model.ThisUser;
-import com.techsolutions.appgrade.database.FireBaseDBUtils;
-
 import org.junit.Ignore;
 import org.junit.Test;
 

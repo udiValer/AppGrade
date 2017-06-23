@@ -1,29 +1,13 @@
-package com.techsolutions.appgrade.Logic;
+package com.techsolutions.appgrade.logic;
 
-import android.app.Activity;
-import android.app.Application;
 import android.content.Context;
-import android.content.SharedPreferences;
 
-import com.techsolutions.appgrade.Model.ThisUser;
-import com.techsolutions.appgrade.Model.User;
-
-import org.apache.commons.validator.routines.EmailValidator;
-
-import java.sql.Blob;
+import com.techsolutions.appgrade.model.ThisUser;
 
 //Singleton class
 public class DataController{
 
     private MySharedPreferences sharedPref;
-
-    private String email;
-    private String name;
-    private String phoneNumber;
-    private int age;
-    private String realm;
-    private Blob picture;
-
     private static DataController mInstance = null;
 
     public static DataController Instance(){
@@ -52,27 +36,4 @@ public class DataController{
         return sharedPref;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public String getRealm() {
-        return realm;
-    }
-
-    public Blob getPicture() {
-        return picture;
-    }
 }

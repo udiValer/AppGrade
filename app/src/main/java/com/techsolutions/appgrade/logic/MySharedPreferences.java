@@ -1,4 +1,4 @@
-package com.techsolutions.appgrade.Logic;
+package com.techsolutions.appgrade.logic;
 
 import android.app.Activity;
 import android.content.Context;

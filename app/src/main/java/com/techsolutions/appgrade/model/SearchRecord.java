@@ -1,4 +1,4 @@
-package com.techsolutions.appgrade.Model;
+package com.techsolutions.appgrade.model;
 
 /**
  * Created by Udi on 6/12/2017.

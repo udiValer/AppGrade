@@ -1,9 +1,8 @@
-package com.techsolutions.appgrade.View;
+package com.techsolutions.appgrade.view;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -15,15 +14,12 @@ import android.widget.AbsListView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.PopupWindow;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import com.techsolutions.appgrade.Logic.DataController;
-import com.techsolutions.appgrade.Model.ThisUser;
+import com.techsolutions.appgrade.model.ThisUser;
 import com.techsolutions.appgrade.R;
-import com.techsolutions.appgrade.database.FireBaseDBUtils;
 
 /**
  * Created by Udi on 6/6/2017.

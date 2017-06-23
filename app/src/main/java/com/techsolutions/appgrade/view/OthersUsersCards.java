@@ -1,20 +1,13 @@
-package com.techsolutions.appgrade.View;
+package com.techsolutions.appgrade.view;
 
 import android.app.Activity;
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.net.Uri;
 import android.os.Bundle;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.mindorks.placeholderview.SwipeDecor;
 import com.mindorks.placeholderview.SwipePlaceHolderView;
-import com.techsolutions.appgrade.Model.OtherUser;
+import com.techsolutions.appgrade.model.OtherUser;
 import com.techsolutions.appgrade.R;
-
-import java.io.File;
 
 /**
  * Created by Udi on 6/11/2017.

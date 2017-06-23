@@ -1,4 +1,4 @@
-package com.techsolutions.appgrade.View;
+package com.techsolutions.appgrade.view;
 
 import android.app.Activity;
 import android.content.Intent;

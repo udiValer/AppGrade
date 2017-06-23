@@ -1,16 +1,14 @@
-package com.techsolutions.appgrade.View;
+package com.techsolutions.appgrade.view;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
 
-import com.techsolutions.appgrade.Logic.DataController;
-import com.techsolutions.appgrade.Model.ThisUser;
+import com.techsolutions.appgrade.logic.DataController;
+import com.techsolutions.appgrade.model.ThisUser;
 import com.techsolutions.appgrade.R;
 
 /**

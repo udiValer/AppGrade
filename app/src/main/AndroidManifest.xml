@@ -12,49 +12,49 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".View.SplashActivity">
+        <activity android:name=".view.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <activity android:name=".View.FirstActivity">
+        <activity android:name=".view.FirstActivity">
             <intent-filter>
                 <action android:name="com.techsolutions.appgrade.FIRSTACTIVITY" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
 
-        <activity android:name=".View.SemesterActivity">
+        <activity android:name=".view.SemesterActivity">
             <intent-filter>
                 <action android:name="com.techsolutions.appgrade.SEMESTERACTIVITY" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
 
-        <activity android:name=".View.RegisterActivity">
+        <activity android:name=".view.RegisterActivity">
             <intent-filter>
                 <action android:name="com.techsolutions.appgrade.REGISTERACTIVITY" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
 
-        <activity android:name=".View.CourseActivity">
+        <activity android:name=".view.CourseActivity">
             <intent-filter>
                 <action android:name="com.techsolutions.appgrade.COURSEACTIVITY" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
 
-        <activity android:name=".View.CityActivity">
+        <activity android:name=".view.CityActivity">
             <intent-filter>
                 <action android:name="com.techsolutions.appgrade.CITYACTIVITY" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
 
-        <activity android:name=".View.OthersUsersCards">
+        <activity android:name=".view.OthersUsersCards">
             <intent-filter>
                 <action android:name="com.techsolutions.appgrade.OTHERUSERCARD" />
                 <category android:name="android.intent.category.DEFAULT" />

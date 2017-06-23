@@ -1,4 +1,4 @@
-package com.techsolutions.appgrade.Model;
+package com.techsolutions.appgrade.model;
 
 import java.sql.Blob;
 
@@ -8,19 +8,12 @@ import java.sql.Blob;
 
 public class OtherUser extends User{
 
-    private String email;
-    private String name;
-    private String phoneNumber;
-    private int age;
-    private String realm;
-    private Blob picture;
-
     public OtherUser(String Email, String Name , String PhoneNumber , int Age , String Realm , Blob Picture){
         this.email = Email;
         this.name = Name;
         this.phoneNumber = PhoneNumber;
         this.age = Age;
-        this.realm = Realm;
+        this.faculty = Realm;
         this.picture = Picture;
     }
 
@@ -40,8 +33,8 @@ public class OtherUser extends User{
         return age;
     }
 
-    public String getRealm() {
-        return realm;
+    public String getFaculty() {
+        return faculty;
     }
 
     public Blob getPicture() {
