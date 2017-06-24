@@ -10,8 +10,12 @@ public class DataController{
     private MySharedPreferences sharedPref;
     private static DataController mInstance = null;
 
+    private DataController(){
+
+    }
+
     public static DataController Instance(){
-        if(mInstance==null)
+        if(mInstance == null)
         {
             mInstance = new DataController();
         }
